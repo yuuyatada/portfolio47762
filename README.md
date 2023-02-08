@@ -1,4 +1,4 @@
-# <-ぽてます->
+# ぽてます
 
 ## サイト概要
 ### サイトテーマ
@@ -18,6 +18,18 @@
 ・自身のレシピを投稿をするとき
 
 ## 設計書
+画面遷移図
+https://app.diagrams.net/#G1eeq_HIMT0OobRyuZt8wXRCew4t4T87z2
+
+ワイヤーフレーム
+https://app.diagrams.net/#G1Wjulk4VC9si6uRwZleTJPeuDYgZUyrPt
+
+テーブル定義書
+https://docs.google.com/spreadsheets/d/1S7rmtCyZRpz-vFIaMVV_KfwL1Y6zgYwBwcPT0XidXwg/edit#gid=155463791
+
+詳細設計書
+https://docs.google.com/spreadsheets/d/18yksHytWgaFBHzFapXSxMN3DMc83C-NoCyc68u2_fBE/edit#gid=549108681
+
 
 
 ## 開発環境
