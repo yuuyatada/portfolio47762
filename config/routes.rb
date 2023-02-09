@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+ 
  #管理者ログインの指定
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -14,8 +15,16 @@ devise_for :users, controllers: {
   registrations: 'users/registrations'
 }
 
+
  #レシピのルーティング
   resources :recipes
+  
+  resources :users,only: [:show,:edit] do
+     collection do
+       get 'quit'
+       patch 'out'
+     end
+   end
   
  #homes側のルーティング
   get 'homes/top'
