@@ -1,0 +1,11 @@
+<% if recipe.favorited?(current_user) %>
+    <%= button_to recipe_favorites_path(recipe), method: :delete, remote: true do %>
+        <span style="color:red;">❤︎</span>
+         <%= recipe.favorites.count %>
+    <% end %>
+<% else %>
+    <%= button_to recipe_favorites_path(recipe), method: :post, remote: true do %>
+        <span>❤︎</span>
+         <%= recipe.favorites.count %>
+    <% end %>
+<% end %>
