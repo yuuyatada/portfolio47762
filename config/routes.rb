@@ -19,7 +19,7 @@ devise_for :users, controllers: {
  #レシピのルーティング
   resources :recipes
   
-  resources :users,only: [:show,:edit] do
+  resources :users,only: [:show,:edit,:update] do
      collection do
        get 'quit'
        patch 'out'
