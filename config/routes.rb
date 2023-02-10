@@ -17,7 +17,9 @@ devise_for :users, controllers: {
 
 
  #レシピのルーティング
-  resources :recipes
+  resources :recipes do
+   resource :favorites, only: [:create, :destroy]
+  end
   
   resources :users,only: [:show,:edit,:update] do
      collection do

@@ -13,5 +13,18 @@
   <h4>本文</h4>
   <%= @recipe.main_text %>
   
+  <h6>いいね機能</h6>
+  <% if @recipe.favorited?(current_user) %>
+    <%= button_to recipe_favorites_path(@recipe), method: :delete do %>
+        <span style="color:red;">❤︎</span>
+         <%= @recipe.favorites.count %>
+    <% end %>
+<% else %>
+    <%= button_to recipe_favorites_path(@recipe), method: :post do %>
+        <span>❤︎</span>
+         <%= @recipe.favorites.count %>
+    <% end %>
+<% end %>
+  
   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
   
