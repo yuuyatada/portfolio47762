@@ -24,6 +24,14 @@ class RecipesController < ApplicationController
   end
 
   def update
+       @recipe = Recipe.find(params[:id])
+     
+	if  @recipe.update(recipe_params)
+  	flash[:success] = "登録情報を変更しました"
+		redirect_to recipe_path(@recipe.id)
+	else
+  	render :edit and return
+ 	end
   end
 
   def destroy
@@ -33,7 +41,7 @@ class RecipesController < ApplicationController
    private
    
   def recipe_params
-    params.require(:recipe).permit(:title, :main_text)
+    params.require(:recipe).permit(:title, :main_text, :recipe_image)
   end
   
   

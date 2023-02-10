@@ -3,5 +3,12 @@
 <% @recipes.each do |potato| %>
 <table>
   <span><%= link_to potato.title,recipe_path(potato.id) %></span>
+  
+  <th><% if potato.recipe_image.attached? %>
+    <%= image_tag potato.recipe_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "200x200" %>
+  <% end %>
+  </th>
 </table>
 <% end %>

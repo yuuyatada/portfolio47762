@@ -5,6 +5,13 @@
   <%= @recipe.title %>
   
   <h4>イメージ画像</h4>
-  
+  <% if @recipe.recipe_image.attached? %>
+    <%= image_tag @recipe.recipe_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "200x200" %>
+  <% end %>
   <h4>本文</h4>
   <%= @recipe.main_text %>
+  
+  <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+  
