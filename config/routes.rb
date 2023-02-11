@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
  
- 
  #管理者ログインの指定
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -18,7 +17,8 @@ devise_for :users, controllers: {
 
  #レシピのルーティング
   resources :recipes do
-   resource :favorites, only: [:create, :destroy]
+   resource :favorites, only: [:create, :destroy] 
+   resources :user_comments, only:[:create,:destroy]
   end
   
   resources :users,only: [:show,:edit,:update] do

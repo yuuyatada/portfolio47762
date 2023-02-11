@@ -8,5 +8,7 @@ class User < ApplicationRecord
          
   has_many :recipes, dependent: :destroy
   has_many :favorites, dependent: :destroy
+   #コメント機能
+  has_many :user_comments, dependent: :destroy
          
 end

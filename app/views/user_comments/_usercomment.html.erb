@@ -1,0 +1,17 @@
+<table>
+ <% recipe.user_comments.each do |recipe_comment| %>
+  <% recipe_comment_user = recipe_comment.user %>
+    <tr>
+    	<td>
+    		<%= link_to (recipe_comment_user) do %>
+      		<!--%= image_tag book_comment.user.get_profile_image, size: "50x50" %--><br>
+      		<%=  recipe_comment_user.name %>
+    		<% end %>
+    	</td>
+    	<td><%= recipe_comment.comment %></td>
+    	<% if current_user == recipe_comment_user %>
+      	<td><%= button_to '削除', recipe_user_comments_path(recipe_comment.id,recipe.id), method: :delete %></td>
+    	<% end %>
+    </tr>
+  <% end %>
+</table>

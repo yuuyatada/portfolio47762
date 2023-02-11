@@ -17,6 +17,10 @@
   <td id="favorite_buttons_<%= @recipe.id %>">
   <%= render "favorites/favorite", recipe: @recipe %>
   </td>
+  <td>コメント数：<%= @recipe.user_comments.count %></td>
+  <div id="comments-area"><%= render "user_comments/comment",recipe: @recipe,user_comment: @user_comment %></div>
+  <div><%= render "user_comments/usercomment",recipe: @recipe%></div>
+  
   
   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
   
