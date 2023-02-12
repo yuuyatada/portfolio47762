@@ -20,7 +20,7 @@
   <%= link_to "About", homes_about_path %>
  </li>
  <li>
-  <!--%= link_to "マイページ",  user_path %-->
+  <%= link_to "マイページ",  user_path(current_user.id) %>
  </li>
  <li>
   <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>

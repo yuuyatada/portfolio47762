@@ -22,10 +22,15 @@ devise_for :users, controllers: {
   end
   
   resources :users,only: [:show,:edit,:update] do
+   #退会機能関係
      collection do
        get 'quit'
        patch 'out'
      end
+     #いいねの一覧に飛ぶ
+    member do
+    get :favorites
+    end
    end
   
  #homes側のルーティング

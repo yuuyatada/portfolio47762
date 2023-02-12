@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :set_user, only: [:favorites]
+    
     
   def show
      @user = User.find(params[:id])
@@ -33,13 +35,27 @@ class UsersController < ApplicationController
   	render :edit and return
  	end
  	
+ 	#いいねした投稿の一覧に移動する
+ 	
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
+    @favorite_recipes = Recipe.find(favorites)
+  end
+ 	
    end
   
    private
    
+   def set_user
+    @user = User.find(params[:id])
+   end
+   
   def user_params
     params.require(:user).permit(:name)
   end
+  
+  
   
   
   
