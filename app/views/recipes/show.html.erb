@@ -12,7 +12,7 @@
   <% end %>
   <h4>本文</h4>
   <%= @recipe.main_text %>
-  
+  <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
   <h6>いいね機能</h6>
   <td id="favorite_buttons_<%= @recipe.id %>">
   <%= render "favorites/favorite", recipe: @recipe %>
@@ -22,5 +22,5 @@
   <div><%= render "user_comments/usercomment",recipe: @recipe%></div>
   
   
-  <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+
   

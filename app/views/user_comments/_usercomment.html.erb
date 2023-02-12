@@ -10,7 +10,7 @@
     	</td>
     	<td><%= recipe_comment.comment %></td>
     	<% if current_user == recipe_comment_user %>
-      	<td><%= button_to '削除', recipe_user_comments_path(recipe_comment.id,recipe.id), method: :delete %></td>
+      	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
     	<% end %>
     </tr>
   <% end %>
