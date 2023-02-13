@@ -12,20 +12,33 @@
   <% end %>
   <h4>本文</h4>
   <%= @recipe.main_text %>
-  <% if @recipe.user == current_user %>
+  
+   <% if user_signed_in? && current_user.id == @recipe.user_id %>  
   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
   <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-success" %>
+  
+   <% elsif user_signed_in? && current_user.admin? && current_user.id == @recipe.user_id  %> 
+   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+   <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-success" %>
+   
   <% end %>
   
-  
+   <% if user_signed_in? && current_user.id == @recipe.user_id %> 
   <h6>いいね機能</h6>
   <td id="favorite_buttons_<%= @recipe.id %>">
   <%= render "favorites/favorite", recipe: @recipe %>
+  <% elsif user_signed_in? && current_user.admin? && current_user.id == @recipe.user_id  %> 
+  <% end %>
   </td>
-  <td>コメント数：<%= @recipe.user_comments.count %></td>
-  <div id="comments-area"><%= render "user_comments/comment",recipe: @recipe,user_comment: @user_comment %></div>
-  <div><%= render "user_comments/usercomment",recipe: @recipe%></div>
   
+ 
+  <td>コメント数：<%= @recipe.user_comments.count %></td>
+  <% if user_signed_in? %> 
+  <div id="comments-area"><%= render "user_comments/comment",recipe: @recipe,user_comment: @user_comment %></div>
+   <% elsif user_signed_in? && current_user.admin? == @recipe.user_id  %> 
+  <% end %>
+  <div><%= render "user_comments/usercomment",recipe: @recipe%></div>
+ 
   
 
   

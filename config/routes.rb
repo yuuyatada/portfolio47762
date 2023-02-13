@@ -21,6 +21,13 @@ devise_for :users, controllers: {
    resources :user_comments, only:[:create,:destroy]
   end
   
+    namespace :admin do
+     root to: 'homes#top'
+     resources :recipes, only: [:index, :show, :edit, :destroy]
+     resources :user_comments, only:[:destroy]
+     resources :users,only: [:show,:edit,:update]
+  end
+  
   resources :users,only: [:show,:edit,:update] do
    #退会機能関係
      collection do

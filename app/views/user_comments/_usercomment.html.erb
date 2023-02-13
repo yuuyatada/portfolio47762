@@ -4,13 +4,18 @@
     <tr>
     	<td>
     		<%= link_to (recipe_comment_user) do %>
-      		<!--%= image_tag book_comment.user.get_profile_image, size: "50x50" %--><br>
+      		<%= image_tag recipe_comment.user.get_profile_image, size: "50x50" %><br>
       		<%=  recipe_comment_user.name %>
     		<% end %>
     	</td>
     	<td><%= recipe_comment.comment %></td>
-    	<% if current_user == recipe_comment_user %>
+    	<!--コメントしたユーザーと管理者のみ削除が行える-->
+    <% if user_signed_in? && current_user.id == recipe_comment.user_id %>  
       	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
+      	
+    	 <% elsif user_signed_in? && current_user.admin? && current_user.id == recipe_comment.user_id  %> 
+    	 
+    	 	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
     	<% end %>
     </tr>
   <% end %>
