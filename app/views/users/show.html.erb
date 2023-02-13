@@ -2,6 +2,9 @@
 
 
 <%= @user.name %>
+<%= image_tag @user.get_profile_image,size:"50x50" %>
+<%= @user.message %>
+
 
 <%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
 
