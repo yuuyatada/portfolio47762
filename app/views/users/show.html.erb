@@ -11,3 +11,23 @@
 <%= link_to "いいねした投稿", favorites_user_path(@user) %>
 
 
+<h1>投稿一覧</h1>
+<p>食べ方一覧</p>
+<% @recipe.each do |potato| %>
+<table>
+  <span><%= link_to potato.title,recipe_path(potato.id) %></span>
+  
+  <th><% if potato.recipe_image.attached? %>
+    <%= image_tag potato.recipe_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "200x200" %>
+  <% end %>
+  </th>
+  <td id="favorite_buttons_<%= potato.id %>">
+  <%= render "favorites/favorite", recipe: potato %>
+  </td>
+  <td>コメント数：<%= potato.user_comments.count %></td>
+</table>
+<% end %>
+
+
