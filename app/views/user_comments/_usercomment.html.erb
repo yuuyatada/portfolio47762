@@ -13,7 +13,7 @@
     <% if user_signed_in? && current_user.id == recipe_comment.user_id %>  
       	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
       	
-    	 <% elsif user_signed_in? && current_user.admin? && current_user.id == recipe_comment.user_id  %> 
+    	<% elsif user_signed_in? && current_user.id == recipe_comment.user_id || admin_signed_in? %>
     	 
     	 	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
     	<% end %>

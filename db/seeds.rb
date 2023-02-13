@@ -8,7 +8,6 @@
 Admin.create!(
    email: 'potato@admin',
    password: 'potemasuadmin'
-   admin: true
 )
 
 User.create!(name:  "管理者",
