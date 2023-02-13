@@ -12,7 +12,12 @@
   <% end %>
   <h4>本文</h4>
   <%= @recipe.main_text %>
+  <% if @recipe.user == current_user %>
   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+  <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-success" %>
+  <% end %>
+  
+  
   <h6>いいね機能</h6>
   <td id="favorite_buttons_<%= @recipe.id %>">
   <%= render "favorites/favorite", recipe: @recipe %>
