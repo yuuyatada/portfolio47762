@@ -18,6 +18,7 @@
   <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-success" %>
   
    <% elsif user_signed_in? && current_user.id == @recipe.user_id || admin_signed_in? %> 
+   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
    <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-success" %>
   <% end %>
   </td>

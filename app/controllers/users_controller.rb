@@ -27,15 +27,12 @@ class UsersController < ApplicationController
   end
   
    def out
-       @user = current_user
-     
-	if @customer.update(user_params)
-  	flash[:success] = "登録情報を変更しました"
-	   redirect_to user_path(@customer.id)
-	else
-  	render :edit and return
- 	end
- 	
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+   end
  	#いいねした投稿の一覧に移動する
  	
   def favorites
@@ -44,8 +41,6 @@ class UsersController < ApplicationController
     @favorite_recipes = Recipe.find(favorites)
   end
  	
-   end
-  
    private
    
    def set_user

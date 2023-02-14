@@ -45,5 +45,5 @@ class Admin::RecipesController < ApplicationController
   
   def set_recipe
     　　@recipe = Recipe.find(params[:id])
-  　　end
+  end
 end
