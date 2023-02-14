@@ -3,7 +3,11 @@ class UsersController < ApplicationController
     
   def show
      @user = User.find(params[:id])
-     @recipe = Recipe.where(params[:id])
+     @recipes = @user.recipes.published
+     @reciped = @user.recipes.unpublished
+    
+     
+     
   end
 
   def edit

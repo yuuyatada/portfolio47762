@@ -1,6 +1,7 @@
 <h1>投稿一覧</h1>
 <%= link_to "新規投稿画面へ", new_recipe_path %>
 <p>食べ方一覧</p>
+ 
 <% @recipes.each do |potato| %>
 <table>
   <span><%= link_to potato.title,recipe_path(potato.id) %></span>

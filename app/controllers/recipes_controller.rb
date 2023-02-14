@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
+    
   def new
     @recipe = Recipe.new
   end
 
   def index
-   @recipes = Recipe.all
+   @recipes = Recipe.published
   end
 
   def show
@@ -47,7 +48,7 @@ class RecipesController < ApplicationController
    private
    
   def recipe_params
-    params.require(:recipe).permit(:title, :main_text, :recipe_image).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:title, :main_text, :recipe_image,:is_active).merge(user_id: current_user.id)
   end
   
   

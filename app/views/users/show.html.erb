@@ -13,7 +13,7 @@
 
 <h1>投稿一覧</h1>
 <p>食べ方一覧</p>
-<% @recipe.each do |potato| %>
+<% @recipes.each do |potato| %>
 <table>
   <span><%= link_to potato.title,recipe_path(potato.id) %></span>
   
@@ -30,4 +30,11 @@
 </table>
 <% end %>
 
-
+<% if current_user.id?%> 
+<p>非公開の投稿一覧</p>
+<% @reciped.each do |nopotato| %>
+<table>
+ <span><%= link_to nopotato.title,recipe_path(nopotato.id) %></span>
+</table>
+<% end %>
+<% end %>

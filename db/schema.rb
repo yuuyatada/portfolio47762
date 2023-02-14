@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_02_13_090847) do
     t.integer "breed_id"
     t.text "title"
     t.text "main_text"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

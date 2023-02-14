@@ -40,7 +40,7 @@ class Admin::RecipesController < ApplicationController
   end
   
   def recipe_params
-    params.require(:recipe).permit(:title, :main_text, :recipe_image).merge(user_id: current_user.admin)
+     params.require(:recipe).permit(:title, :main_text, :recipe_image,:is_active).merge(user_id: current_user.admin)
   end
   
   def set_recipe

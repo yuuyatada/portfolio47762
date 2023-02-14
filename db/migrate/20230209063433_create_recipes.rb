@@ -6,7 +6,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.integer :breed_id
       t.text :title
       t.text :main_text
-      t.boolean :is_active
+      t.boolean "is_active", default: true, null: false
       t.timestamps
     end
   end
