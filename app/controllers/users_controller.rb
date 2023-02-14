@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:favorites]
     
-    
   def show
      @user = User.find(params[:id])
      @recipe = Recipe.where(params[:id])

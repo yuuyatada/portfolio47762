@@ -25,7 +25,7 @@ devise_for :users, controllers: {
      root to: 'homes#top'
      resources :recipes, only: [:index, :show, :edit, :destroy]
      resources :user_comments, only:[:destroy]
-     resources :users,only: [:show,:edit,:update]
+     resources :users,only: [:index,:show,:edit,:update]
   end
   
   resources :users,only: [:show,:edit,:update] do

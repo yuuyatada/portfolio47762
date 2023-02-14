@@ -21,5 +21,14 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [50, 50]).processed
    end
+   
+   def status
+    if is_deleted == true
+      is_deleted = "退会"
+    else
+      is_deleted = "有効"
+    end
+   end
+   
          
 end
