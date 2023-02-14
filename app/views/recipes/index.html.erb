@@ -1,6 +1,13 @@
 <h1>投稿一覧</h1>
 <%= link_to "新規投稿画面へ", new_recipe_path %>
 <p>食べ方一覧</p>
+
+<%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
+    <% Breed.all.each do |t| %>
+        <li><%= check_box :breed_id, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+
  
 <% @recipes.each do |potato| %>
 <table>
@@ -15,4 +22,4 @@
   
 </table>
 <% end %>
-
+<% end %>

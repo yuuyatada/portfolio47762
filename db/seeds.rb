@@ -14,4 +14,17 @@ User.create!(name:  "管理者",
              email: "potato@admin",
              password:  "potemasuadmin",
              admin: true)
+             
+Breed.create([
+  { name: 'キタアカリ' },
+  { name: '男爵芋' },
+  { name: 'トヨシロ' },
+  { name: 'インカのめざめ' },
+  { name: 'ノーザンルビー' },
+  { name: 'キタムラサキ' },
+  { name: 'メークイン' },
+  { name: 'とうや' },
+  { name: 'ホッカイコガネ' },
+  { name: 'はるか' }
+])
 

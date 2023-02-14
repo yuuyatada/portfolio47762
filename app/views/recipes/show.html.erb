@@ -12,6 +12,10 @@
   <% end %>
   <h4>本文</h4>
   <%= @recipe.main_text %>
+  <h4>品種名</h4>
+  <%= @recipe.breed_id %>
+  
+  
   <td>
    <% if user_signed_in? && current_user.id == @recipe.user_id %>  
   <%= link_to " ユーザ編集",  edit_recipe_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
