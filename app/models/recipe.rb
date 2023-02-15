@@ -2,8 +2,8 @@ class Recipe < ApplicationRecord
      has_one_attached :recipe_image
      #recipeテーブルから中間テーブルに対する関連付け
      has_many :recipe_breed_relations, dependent: :destroy
-      #recipeテーブルから中間テーブルを介してTagsテーブルへの関連付け
-     has_many :recipes, through: :recipe_breed_relations, dependent: :destroy
+      #breedテーブルから中間テーブルを介してTagsテーブルへの関連付け
+     has_many :breeds, through: :recipe_breed_relations, dependent: :destroy
      belongs_to :user
      #いいね機能
      has_many :favorites, dependent: :destroy

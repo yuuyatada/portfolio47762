@@ -1,25 +1,34 @@
 <h1>投稿一覧</h1>
 <%= link_to "新規投稿画面へ", new_recipe_path %>
 <p>食べ方一覧</p>
+<%= link_to "全て", recipes_path %>
+<%= form_tag recipes_path, method: :get, class: 'boards__searchForm' do %>
 
-<%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
-    <% Breed.all.each do |t| %>
-        <li><%= check_box :breed_id, t.name %><%= t.name %></li>
-    <% end %>
+  <% @breeds.each do |tag| %>
+      <div class="tag-box">
+        <%= link_to tag.name, recipes_path(name: tag.id) %>
+      </div>
+  <% end %>
     <%= submit_tag '検索' %>
-
+  
  
 <% @recipes.each do |potato| %>
 <table>
-  <span><%= link_to potato.title,recipe_path(potato.id) %></span>
-  
-  <th><% if potato.recipe_image.attached? %>
+  <th>
+    <td><%= link_to potato.title,recipe_path(potato.id) %></td>
+    
+  <% if potato.recipe_image.attached? %>
     <%= image_tag potato.recipe_image, size: "200x200" %>
   <% else %>
     <%= image_tag 'default-image', size: "200x200" %>
   <% end %>
+  <% potato.breeds.each do |tag| %>
+  <%= tag.name%>
+  <% end %>
+  <% end %>
   </th>
   
 </table>
+
 <% end %>
-<% end %>
+

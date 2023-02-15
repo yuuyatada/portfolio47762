@@ -5,7 +5,9 @@ class RecipesController < ApplicationController
   end
 
   def index
-   @recipes = Recipe.published
+   @recipes = params[:name].present? ? Breed.find(params[:name]).recipes : Recipe.published
+   @breeds = Breed.all
+   
   end
 
   def show
@@ -48,7 +50,7 @@ class RecipesController < ApplicationController
    private
    
   def recipe_params
-    params.require(:recipe).permit(:title, :main_text, :recipe_image,:is_active, :breed_id).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:title, :main_text, :recipe_image,:is_active, breed_ids: []).merge(user_id: current_user.id)
   end
   
   
