@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1>新規レシピ投稿画面</h1>
 
 <%= form_with model: @recipe, url: '/recipes', method: :post do |f| %>
@@ -21,3 +22,8 @@
   <%= f.submit '投稿' %>
   
 <% end %>
+<% else %>
+<p>新規投稿をするにはユーザ登録が必要になります。</p><br>
+ユーザ登録は <%= link_to "こちら", new_user_registration_path %>からお願いします。
+<% end %>
+ <%= link_to "食べ方一覧",  recipes_path %>に戻る

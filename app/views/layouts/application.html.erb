@@ -55,7 +55,10 @@
   <%= link_to "食べ方一覧",  recipes_path %>
  </li>
 <% end %>
-
+ <% if user_signed_in? %>
+<%= render partial: 'layouts/search' %>
+<% else %>
+<% end %>
   <body>
     <%= yield %>
   </body>

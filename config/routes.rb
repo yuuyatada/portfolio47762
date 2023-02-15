@@ -44,5 +44,6 @@ devise_for :users, controllers: {
   get 'homes/top'
   get 'homes/about'
   root to: "homes#top"
+  get "search" => "searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def index
-   @recipes = params[:name].present? ? Breed.find(params[:name]).recipes : Recipe.published
+   @recipes = params[:id] ? Breed.find(params[:id]).recipes : Recipe.published
    @breeds = Breed.all
    
   end

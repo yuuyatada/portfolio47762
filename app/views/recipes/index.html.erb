@@ -6,10 +6,9 @@
 
   <% @breeds.each do |tag| %>
       <div class="tag-box">
-        <%= link_to tag.name, recipes_path(name: tag.id) %>
+        <%= link_to tag.name, recipes_path(id: tag.id) %>
       </div>
   <% end %>
-    <%= submit_tag '検索' %>
   
  
 <% @recipes.each do |potato| %>
@@ -22,9 +21,8 @@
   <% else %>
     <%= image_tag 'default-image', size: "200x200" %>
   <% end %>
-  <% potato.breeds.each do |tag| %>
-  <%= tag.name%>
-  <% end %>
+  <%= potato.breed.name%>
+
   <% end %>
   </th>
   
