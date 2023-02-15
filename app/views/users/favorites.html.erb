@@ -1,2 +1,12 @@
 <p>いいねした投稿一覧</p>
-<%= render partial: "users/list", collection: @favorite_recipes %>
+<table>
+<% @favorite_recipes.each do |like|%>
+<%= link_to like.title, recipe_path(like.id) %>
+ <% if like.recipe_image.attached? %>
+    <%= image_tag like.recipe_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "200x200" %>
+  <% end %>
+<% end %>
+</table>
+<!--%= render partial: "users/list", collection: @favorite_recipes %-->
