@@ -5,61 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/dc725da916.js" crossorigin="anonymous"></script>
   </head>
-  <% if user_signed_in? %>
-  <li>
-  <%= link_to "Top",  homes_top_path %>
- </li>
- <li>
-  <%= link_to "食べ方一覧",  recipes_path %>
- </li>
- <li>
-  <%= link_to "About", homes_about_path %>
- </li>
- <li>
-  <%= link_to "マイページ",  user_path(current_user.id) %>
- </li>
- <li>
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
- </li>
- 
-<% elsif admin_signed_in? %>
-<li>
-  <%= link_to "Top",  admin_root_path %>
- </li>
- <li>
-  <%= link_to "食べ方一覧",  recipes_path %>
- </li>
- <li>
-  <%= link_to "ユーザ一覧",  admin_users_path %>
- </li>
- <li>
-  <%= button_to "ログアウト", destroy_admin_session_path, method: :delete %>
- </li>
-<% else %>
- <li>
-  <%= link_to "新規登録", new_user_registration_path %>
- </li>
- 
- <li>
-  <%= link_to "ログイン", new_user_session_path %>
- </li>
- 
-  <li>
-  <%= link_to "About", homes_about_path %>
- </li>
- <li>
-  <%= link_to "食べ方一覧",  recipes_path %>
- </li>
-<% end %>
- <% if user_signed_in? %>
-<%= render partial: 'layouts/search' %>
-<% else %>
-<% end %>
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+  <%= render 'layouts/header' %>
+<main>
+  
+  <%= yield %>
+</main>
+ <%= render 'layouts/footer' %>
   </body>
 </html>
