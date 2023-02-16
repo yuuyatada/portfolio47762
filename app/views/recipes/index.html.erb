@@ -1,6 +1,10 @@
-<h1><i class="fa-regular fa-potato"></i>投稿一覧</h1>
-<%= link_to "新規投稿画面へ", new_recipe_path %>
-<p>食べ方一覧</p>
+
+<div class="container  px-5 px-sm-0">
+ <div class ="row">
+ <div class="col-md-3">
+ <h2><i class="fa-regular fa-potato"></i>食べ方投稿一覧</h2>
+ <table>
+<%= link_to "新規投稿画面へ", new_recipe_path %><br>
 <%= link_to "全て", recipes_path %>
 <%= form_tag recipes_path, method: :get, class: 'boards__searchForm' do %>
 
@@ -9,24 +13,36 @@
         <%= link_to tag.name, recipes_path(id: tag.id) %>
       </div>
   <% end %>
+  </table>
+  </div>
   
- 
+  <div class="col-md-8 offset-md-1">
+ <table>
+    <thead>
+    <tr>
+   <th>食べ方名</th>
+   <th></th>
+   <th>使用した品種</th>
+  </tr>
+   
 <% @recipes.each do |potato| %>
-<table>
-  <th>
+
+  <tr>
     <td><%= link_to potato.title,recipe_path(potato.id) %></td>
     
-  <% if potato.recipe_image.attached? %>
-    <%= image_tag potato.recipe_image, size: "200x200" %>
+  <td><% if potato.recipe_image.attached? %>
+    <%= image_tag potato.recipe_image, size: "90x90" %>
   <% else %>
-    <%= image_tag 'default-image', size: "200x200" %>
-  <% end %>
-  <%= potato.breed.name%>
+    <%= image_tag 'default-image', size: "90x90" %>
+  <% end %></td>
+  <td><%= potato.breed.name%></td>
 
   <% end %>
-  </th>
-  
+  </tr>
+   </thead>
 </table>
 
 <% end %>
-
+</div>
+</div>
+</div>
