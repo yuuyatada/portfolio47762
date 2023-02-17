@@ -1,14 +1,23 @@
-<div class="container  px-5 px-sm-0">
+<div class="container-field">
  <div class ="row">
- <div class="col-md-3">
-<table class="table table-hover">
-<h4>ユーザ情報</h4>
+     
+     
+ <div class="col-md-3 border">
+    <div class="container">
+    <div class="row-text-center">
+        
+
+<h4>ユーザ情報</h4><br>
 
 <%= @user.name %>
-<%= image_tag @user.get_profile_image,size:"90x90" %>
-<%= @user.message %>
-<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
-<%= link_to "いいねした投稿", favorites_user_path(@user) %>
+<%= image_tag @user.get_profile_image,size:"90x90" %><br>
+
+    
+<p>一言メッセージ</p><br>
+<%= @user.message %><br>
+
+<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %><br>
+<%= link_to "いいねした投稿", favorites_user_path(@user) %><br>
 <% if current_user.id?%> 
 <p>非公開の投稿一覧</p>
 <% @reciped.each do |nopotato| %>
@@ -17,11 +26,13 @@
  <% end %>
 </table>
 <% end %>
- </table>
+ </div>
+ </div>
  </div>
  
 <div class="col-md-8 offset-md-1">
-
+  <div class="container">
+  <div class="row-text-center">
 <h1>自分の投稿一覧</h1>
 <table>
     <tbody>
@@ -45,3 +56,5 @@
 <% end %>
 </div>
 </div>
+ </div>
+ </div>
