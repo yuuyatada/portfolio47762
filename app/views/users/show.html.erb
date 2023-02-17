@@ -1,40 +1,47 @@
+<div class="container  px-5 px-sm-0">
+ <div class ="row">
+ <div class="col-md-3">
+<table class="table table-hover">
 <h4>ユーザ情報</h4>
 
-
 <%= @user.name %>
-<%= image_tag @user.get_profile_image,size:"50x50" %>
+<%= image_tag @user.get_profile_image,size:"90x90" %>
 <%= @user.message %>
-
-
 <%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
-
 <%= link_to "いいねした投稿", favorites_user_path(@user) %>
+<% if current_user.id?%> 
+<p>非公開の投稿一覧</p>
+<% @reciped.each do |nopotato| %>
+<table rules="groups" border="1">
+ <span><%= link_to nopotato.title,recipe_path(nopotato.id) %></span>
+ <% end %>
+</table>
+<% end %>
+ </table>
+ </div>
+ 
+<div class="col-md-8 offset-md-1">
 
-
-<h1>投稿一覧</h1>
-<p>食べ方一覧</p>
-<% @recipes.each do |potato| %>
+<h1>自分の投稿一覧</h1>
 <table>
-  <span><%= link_to potato.title,recipe_path(potato.id) %></span>
-  
-  <th><% if potato.recipe_image.attached? %>
+    <tbody>
+ <tr>
+<% @recipes.each do |potato| %>
+  <th scope="col"><%= link_to potato.title,recipe_path(potato.id) %></th>
+  <th scope="col"><% if potato.recipe_image.attached? %>
     <%= image_tag potato.recipe_image, size: "200x200" %>
   <% else %>
     <%= image_tag 'default-image', size: "200x200" %>
   <% end %>
   </th>
-  <td id="favorite_buttons_<%= potato.id %>">
+  <th id="favorite_buttons_<%= potato.id %>">
   <%= render "favorites/favorite", recipe: potato %>
-  </td>
-  <td>コメント数：<%= potato.user_comments.count %></td>
+  </th>
+ <th scope="col">コメント数：<%= potato.user_comments.count %></th>
+ </tr>
+  </tbody>
 </table>
+</div>
 <% end %>
-
-<% if current_user.id?%> 
-<p>非公開の投稿一覧</p>
-<% @reciped.each do |nopotato| %>
-<table>
- <span><%= link_to nopotato.title,recipe_path(nopotato.id) %></span>
-</table>
-<% end %>
-<% end %>
+</div>
+</div>

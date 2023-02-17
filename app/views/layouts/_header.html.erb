@@ -1,8 +1,15 @@
-  <div class="container-fluid border-bottom">
-      
-  <nav class="navbar navbar-expand-lg mt-1">
+    <div class="container-fluid border-bottom">
+     <nav class="nav navbar-nav navbar-left p-2 ">
+       <div class="text-center py-4">
+      <%= link_to root_path do %>
+        <%= image_tag "ぽてます.jpg", size: "100x100"%>
+      <% end %>
+    </div>
+    </nav>
+   
+   <nav>
   <!--ヘッダー右部分-->
-  <ul class="navbar-nav row justify-content-center">
+  <ul class="nav navbar-nav navbar-nav navbar-right p-2">
  <% if user_signed_in? %>
   <div class="public-menu btn-group" role="group" aira-label="Header menu" >
   <%= link_to homes_top_path, class:"nav-item btn" do  %>
@@ -66,12 +73,14 @@
    <% end %>
  
 <% end %>
- </ul>
+
+  <% if user_signed_in? %>
   <div class ="ml-auto">
- <% if user_signed_in? %>
  <%= render partial: 'layouts/search' %>
  <% else %>
  <% end %>
   </div>
+  </div>
+  </ul>
 </nav>
 </div>

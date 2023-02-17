@@ -1,12 +1,25 @@
-<p>いいねした投稿一覧</p>
+<div class="container  px-5 px-sm-0">
+ <div class ="row">
+
 <table>
+    <tr><p>いいねした投稿一覧</p></tr>
+    <tr>
+      <th scope="col">食べ方</th>
+      <th scope="col"></th>
+      <th scope="col">レシピ内容</th>
+    </tr>
+    
+    <tr>
 <% @favorite_recipes.each do |like|%>
-<%= link_to like.title, recipe_path(like.id) %>
- <% if like.recipe_image.attached? %>
+<th><%= link_to like.title, recipe_path(like.id) %></th>
+ <th><% if like.recipe_image.attached? %>
     <%= image_tag like.recipe_image, size: "200x200" %>
   <% else %>
     <%= image_tag 'default-image', size: "200x200" %>
+  <% end %></th>
+  <th><%= like.main_text.truncate(20)%></th>
+ 
   <% end %>
-<% end %>
+</tr>
 </table>
 <!--%= render partial: "users/list", collection: @favorite_recipes %-->
