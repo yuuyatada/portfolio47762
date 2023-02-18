@@ -6,7 +6,7 @@ class UsersController < ApplicationController
      @recipes = @user.recipes.published
      @reciped = @user.recipes.unpublished
      @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) ).first
-     
+     @likes = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
      
   end
 

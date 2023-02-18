@@ -74,5 +74,36 @@
 </div>
 
 </div>
+<div class="col-md-3 border">
+  <div class="container-field">
+<h4><strong>いいねランキング</strong></h4><br>
+いいね数が多い上位3件の投稿が掲載されるよ<br><br>
+<% @likes.each.with_index(1) do |note, i| %>
+<div class="row border">
+ <div class="col">
+ 第<%= i %>位
+ </div>
+  <div class="col">
+ <%=link_to recipe_path(note.id),class:"title" do %>
+ <%=note.title%>
+<% end %>
+</div>
+ <div class="col">
+<% if note.recipe_image.attached? %>
+    <%= image_tag note.recipe_image, size: "90x90" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "90x90" %>
+  <% end %>
+  </div>
+   <div class="col">
+  ❤数︎:<%= note.favorites.count %>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+ </div>
+
+
 </div>
  </div>
