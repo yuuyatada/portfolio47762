@@ -5,7 +5,7 @@
     <% end %>
 <% else %>
     <%= button_to recipe_favorites_path(recipe), method: :post, remote: true do %>
-        <span>❤︎</span>
+        <span style="color:white;">❤︎</span>
          <%= recipe.favorites.count %>
     <% end %>
 <% end %>

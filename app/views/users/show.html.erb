@@ -30,31 +30,36 @@
  </div>
  </div>
  
-<div class="col-md-8 offset-md-1">
-  <div class="container">
-  <div class="row-text-center">
-<h1>自分の投稿一覧</h1>
-<table>
-    <tbody>
- <tr>
-<% @recipes.each do |potato| %>
-  <th scope="col"><%= link_to potato.title,recipe_path(potato.id) %></th>
-  <th scope="col"><% if potato.recipe_image.attached? %>
-    <%= image_tag potato.recipe_image, size: "200x200" %>
+<div class="col-md-5 offset-md-1">
+  <div class="container-field">
+  <h1>自分の投稿一覧</h1>
+
+  <% @recipes.each do |potato| %>
+  <div class="row border ">
+  <div class="col-md-3 d-flex align-items-center">
+
+  <%= link_to potato.title,recipe_path(potato.id) %>
+  </div>
+  
+  <div class="col-md-3 d-flex align-items-center">
+ <% if potato.recipe_image.attached? %>
+    <%= image_tag potato.recipe_image, size: "100x100" %>
   <% else %>
-    <%= image_tag 'default-image', size: "200x200" %>
+    <%= image_tag 'default-image', size: "100x100" %>
   <% end %>
-  </th>
-  <th id="favorite_buttons_<%= potato.id %>">
+  </div>
+  
+  <div class="col-md-3 d-flex align-items-end">
   <%= render "favorites/favorite", recipe: potato %>
-  </th>
- <th scope="col">コメント数：<%= potato.user_comments.count %></th>
- </tr>
-  </tbody>
-</table>
+   </div>
+   <div class="col-md-3 d-flex align-items-end">
+    コメント数：<%= potato.user_comments.count %>
+   </div>
 </div>
 <% end %>
+
+</div>
+
 </div>
 </div>
- </div>
  </div>
