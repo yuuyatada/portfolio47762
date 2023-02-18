@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  devise_scope :user do
+  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
  #管理者ログインの指定
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -13,6 +17,7 @@ devise_for :users, controllers: {
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
+
 
 
  #レシピのルーティング
@@ -39,11 +44,13 @@ devise_for :users, controllers: {
     get :favorites
     end
    end
-  
+
  #homes側のルーティング
   get 'homes/top'
   get 'homes/about'
   root to: "homes#top"
   get "search" => "searches#search"
+  
+ 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

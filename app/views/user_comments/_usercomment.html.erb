@@ -1,27 +1,33 @@
-<table>
+<div class="container">
+  <div class="row">
+  <div class="col-2">
  <% recipe.user_comments.each do |recipe_comment| %>
   <% recipe_comment_user = recipe_comment.user %>
-    <tr>
-    	<td>
+   
     	 <% if user_signed_in? %> 
     		<%= link_to (recipe_comment_user) do %>
       		<%= image_tag recipe_comment.user.get_profile_image, size: "50x50" %><br>
-      		<%=  recipe_comment_user.name %>
       		<% end %>
+      		<%=  recipe_comment_user.name %>
       		<% else %>
       		<%= image_tag recipe_comment.user.get_profile_image, size: "50x50" %><br>
       		<%=  recipe_comment_user.name %>
     		<% end %>
-    	</td>
-    	<td><%= recipe_comment.comment %></td>
+    	</div>
+     <div class="col">
+    	<%= recipe_comment.comment %>
+    	</div>
+    	 <div class="col">
     	<!--コメントしたユーザーと管理者のみ削除が行える-->
     <% if user_signed_in? && current_user.id == recipe_comment.user_id %>  
-      	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
+      <%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %>
       	
     	<% elsif user_signed_in? && current_user.id == recipe_comment.user_id || admin_signed_in? %>
     	 
-    	 	<td><%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %></td>
+    	 	<<%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %>
     	<% end %>
-    </tr>
+     </div>
+     
   <% end %>
-</table>
+  </div>
+  </div>

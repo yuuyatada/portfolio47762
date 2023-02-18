@@ -24,11 +24,17 @@ class User < ApplicationRecord
    
    def status
     if is_deleted == true
-      is_deleted = "退会"
+       is_deleted = "退会"
     else
       is_deleted = "有効"
     end
    end
    
+   def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト" 
+    end
+   end
          
 end

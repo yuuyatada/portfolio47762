@@ -5,7 +5,7 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
      @recipes = @user.recipes.published
      @reciped = @user.recipes.unpublished
-    
+     @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) ).first
      
      
   end

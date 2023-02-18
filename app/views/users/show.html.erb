@@ -9,15 +9,28 @@
 
 <h4>ユーザ情報</h4><br>
 
-<%= @user.name %>
+
 <%= image_tag @user.get_profile_image,size:"90x90" %><br>
+<%= @user.name %><br>
 
     
 <p>一言メッセージ</p><br>
-<%= @user.message %><br>
+<%= @user.message %><br><br>
 
-<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %><br>
-<%= link_to "いいねした投稿", favorites_user_path(@user) %><br>
+<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %><br><br>
+<%= link_to "いいねした投稿", favorites_user_path(@user) %><br><br>
+
+<h4><strong>ぽてガチャ</strong></h4>
+
+どの投稿を選ぶか悩んでいる方に<br>
+ゲームのガチャのように<br>
+投稿されたものからランダムに<br>
+選択する機能です<br>
+ボタンをクリックすると<br>
+投稿された記事にランダムに<br>
+移動するよ！<br>
+ <%= link_to " ぽてガチャ",  recipe_path(@random), class: "glyphicon glyphicon-pencil btn btn-success" %><br>
+
 <% if current_user.id?%> 
 <p>非公開の投稿一覧</p>
 <% @reciped.each do |nopotato| %>

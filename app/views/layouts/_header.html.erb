@@ -60,6 +60,10 @@
   <li>新規登録</li>
    <% end %>
    
+ <%= link_to  users_guest_sign_in_path, method: :post ,class:"nav-item btn" do %>
+  <li>ゲストログイン</li>
+   <% end %>
+ 
  <%= link_to new_user_session_path , class:"nav-item btn" do  %>
   <li>ログイン</li>
    <% end %>
