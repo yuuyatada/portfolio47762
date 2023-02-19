@@ -28,11 +28,11 @@
 選択する機能です<br>
 ボタンをクリックすると<br>
 投稿された記事にランダムに<br>
-移動するよ！<br>
+移動するよ！<br><br>
  <%= link_to " ぽてガチャ",  recipe_path(@random), class: "glyphicon glyphicon-pencil btn btn-success" %><br>
 
 <% if current_user.id?%> 
-<p>非公開の投稿一覧</p>
+<br><p>非公開の投稿一覧</p>
 <% @reciped.each do |nopotato| %>
 <table rules="groups" border="1">
  <span><%= link_to nopotato.title,recipe_path(nopotato.id) %></span>
@@ -45,7 +45,7 @@
  
 <div class="col-md-5 offset-md-1">
   <div class="container-field">
-  <h1>自分の投稿一覧</h1>
+  <h1><%= @user.name %>の投稿一覧</h1>
 
   <% @recipes.each do |potato| %>
   <div class="row border ">

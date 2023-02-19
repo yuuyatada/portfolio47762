@@ -1,13 +1,45 @@
-<%= form_for(@user) do |f| %>
-<%= f.label :"ニックネーム", class: "col-sm-3 control-label" %>
-<%= f.text_field :name, class: "form-control user_name" %>
-<%= f.label :"アイコン", class: "col-sm-3 control-label" %>
-<%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-<%= f.label :"一言メッセージ", class: "col-sm-3 control-label" %>
-<%= f.text_field :message, class: "form-control user_message" %>
+<div class="container">
 
-       
-<%= f.submit class: "btn btn-secondary" %>
+  
+<%= form_for(@user) do |f| %>
+ <div class="row">
+<%= f.label :"ニックネーム", class: "col-sm-3 control-label" %>
+</div>
+ <div class="row-m-1" style="width: 30%">
+<%= f.text_field :name, class: "form-control user_name" %><br>
+</div>
+
+ <div class="row">
+ 
+<%= f.label :"アイコン", class: "col-sm-3 control-label" %>
+
+
+<div class="col">
+<%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
+</div>
+</div>
+
+ <div class="row">
+<%= f.label :"一言メッセージ", class: "col-sm-3 control-label" %>
+</div>
+ <div class="row-m-1" style="width: 60%">
+  
+<%= f.text_field :message, class: "form-control user_message" %><br>
+</div>
+
+   <div class="row">
+   <div class="col-md-4">
+  <%= f.submit class: "btn btn-secondary" %>
+</div>
+
+   <div class="col-md-4">
  <%= link_to "戻る", user_path(id: @user.id), class: "glyphicon glyphicon-home btn btn-info" %>
+  </div>
+ 
+   <div class="col-md-4">
  <%= link_to '退会する', quit_users_path, class: "glyphicon glyphicon-tint btn btn-danger"%>
+  </div>
+ </div>
+  </div>
 <% end %>
+</div>

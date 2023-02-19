@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="row">
-  <div class="col-2">
+  
  <% recipe.user_comments.each do |recipe_comment| %>
   <% recipe_comment_user = recipe_comment.user %>
-   
+   <div class="row-field border">
+  <div class="col">
     	 <% if user_signed_in? %> 
     		<%= link_to (recipe_comment_user) do %>
       		<%= image_tag recipe_comment.user.get_profile_image, size: "50x50" %><br>
-      		<% end %>
       		<%=  recipe_comment_user.name %>
+      		<% end %>
       		<% else %>
       		<%= image_tag recipe_comment.user.get_profile_image, size: "50x50" %><br>
       		<%=  recipe_comment_user.name %>
     		<% end %>
-    	</div>
-     <div class="col">
     	<%= recipe_comment.comment %>
     	</div>
     	 <div class="col">
