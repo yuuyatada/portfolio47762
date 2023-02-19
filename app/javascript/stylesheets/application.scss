@@ -13,14 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ @import '~bootstrap/scss/bootstrap';
 
-@import '~bootstrap/scss/bootstrap';
-/*
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.home-potato {
-  height: 300px;  高さ300px 
-  background-image: url(image/home.jpg);
-  background-size: cover;
- }
- */
+.home-potato { 
+height: 750px;
+background-image: url("../images/home.jpg");
+background-size: cover;
+background-position: 50%;
+}
+
+.top-text {
+  font-size:5em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow: 0 0 0.2em rgba(0,0,0,1);
+  position:relative;
+  top:50% ;
+ 
+}
+
