@@ -34,6 +34,8 @@
       <th scope="col">食べ方</th>
       <th scope="col"></th>
       <th scope="col">使用した品種</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
  
    <tbody>
@@ -48,6 +50,11 @@
     <%= image_tag 'default-image', size: "90x90" %>
   <% end %></th>
   <th><%= potato.breed.name%></th>
+  <th> <% if user_signed_in?%> 
+  <%= render "favorites/favorite", recipe: potato %>
+  <% elsif user_signed_in? && current_user.admin? && current_user.id == @recipe.user_id  %> 
+  <% end %></th>
+  <th>コメント数：<%= potato.user_comments.count %></th>
 
   <% end %>
   </tr>

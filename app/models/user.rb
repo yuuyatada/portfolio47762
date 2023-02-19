@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         validates :name, presence: true
+         validates :name, presence: true,length:{maximum:20}
          validates :message,length: { maximum: 50 }
          
   has_many :recipes, dependent: :destroy
@@ -24,10 +24,14 @@ class User < ApplicationRecord
    
    def status
     if is_deleted == true
-       is_deleted = "退会"
+    is_deleted = "退会"
     else
-      is_deleted = "有効"
+    is_deleted = "有効"
     end
+   end
+   
+   def active_for_authentication?
+    super && (is_deleted == false)
    end
    
    def self.guest

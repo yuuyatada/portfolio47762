@@ -13,6 +13,9 @@ class Recipe < ApplicationRecord
      #いいね機能の判断メソッド
       scope :published, -> {where(is_active: true)}
       scope :unpublished, -> {where(is_active: false)}
+      
+      validates :title, presence: true,length:{maximum:50}
+      validates :main_text, presence: true,length:{maximum:1000}
      
      
      def favorited?(user)

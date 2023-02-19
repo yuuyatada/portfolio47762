@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    
+     before_action :correct_user, only: [:edit, :update]
   def new
     @recipe = Recipe.new
   end
@@ -22,11 +22,12 @@ class RecipesController < ApplicationController
 
   def create
      recipe = Recipe.new(recipe_params)
-     recipe.save
+     if recipe.save
      redirect_to '/recipes'
-    
-    
-  end
+     else
+     render :new
+     end
+  end 
 
   def update
        @recipe = Recipe.find(params[:id])
@@ -51,6 +52,12 @@ class RecipesController < ApplicationController
    
   def recipe_params
     params.require(:recipe).permit(:title, :main_text, :recipe_image,:is_active, breed_ids: []).merge(user_id: current_user.id)
+  end
+  
+  def correct_user
+    @recipe = Recipe.find(params[:id])
+    @user = @recipe.user
+    redirect_to(recipes_path) unless @user == current_user
   end
   
   

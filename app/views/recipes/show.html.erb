@@ -5,7 +5,9 @@
      <div class ="row">
      <h5>詳細ページ</h5>
      </div>
-     
+     <div class ="row">
+     <h5>投稿者: 	<%= link_to user_path(@recipe.user.id) do %><%=@recipe.user.name%><% end %></h5>
+     </div>
    <div class= "row">
   <h4><strong><%= @recipe.title %></strong></h4>
   </div>

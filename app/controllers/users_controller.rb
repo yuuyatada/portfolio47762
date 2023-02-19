@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:favorites]
-    
+    before_action :correct_user, only: [:edit, :update]
   def show
      @user = User.find(params[:id])
      @recipes = @user.recipes.published
@@ -54,7 +54,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image, :message)
   end
   
-  
+   def correct_user
+    @user = User.find(params[:id])
+    redirect_to(user_path(current_user.id)) unless @user == current_user
+   end
   
   
   
