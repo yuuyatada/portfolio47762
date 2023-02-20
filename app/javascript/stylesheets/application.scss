@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
- @import '~bootstrap/scss/bootstrap';
-
+@import '~bootstrap/scss/bootstrap';
+@import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .home-potato { 
@@ -36,3 +36,50 @@ background-position: 50%;
  
 }
 
+.mainbord {
+    background-color:#FFFFCC ;
+}
+
+.potegacha {
+text-align:center;
+background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+ position:relative;
+  top:10px ;
+}
+
+.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+
+.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn--circle {
+  border-radius: 50%;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+}
+
+.myprof {
+ font-size:50px;
+ text-align:center;
+ line-height:0.95em;
+ font-weight:bold;
+ color: #FFF;
+ text-shadow: 0 0 0.2em rgba(0,0,0,1);
+ position:relative;
+ top:20px;
+background-image: url("../images/my.jpg");
+background-size: cover;
+background-position: 50%;
+}
