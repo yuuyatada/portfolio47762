@@ -1,27 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import '~bootstrap/scss/bootstrap';
 @import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+//@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .home-potato { 
-height: 750px;
-background-image: url("../images/home.jpg");
-background-size: cover;
-background-position: 50%;
+    height: 750px;
+    background-image: url("../images/home.jpg");
+    background-size: cover;
+    background-position: 50%;
 }
 
 .top-text {
@@ -69,12 +54,24 @@ background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   height: 100px;
   padding: 0;
 }
+.potatoabout {
+	text-align:center;
+	line-height:0.95em;
+	font-weight:200;
+	text-shadow:
+		0 0.03em 0.03em #FFAB91,
+		0 0.03em 0.03em #000,
+		0 0.03em 0.03em #FBE9E7;
+background-image: url("../images/potatoabout.jpg");
+background-size: cover;
+background-position: 50%;
+
+}
+
+
 
 .myprof {
- font-size:50px;
  text-align:center;
- line-height:0.95em;
- font-weight:bold;
  color: #FFF;
  text-shadow: 0 0 0.2em rgba(0,0,0,1);
  position:relative;
@@ -82,4 +79,26 @@ background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 background-image: url("../images/my.jpg");
 background-size: cover;
 background-position: 50%;
+}
+
+.potefly {
+ font-weight: 100;
+ text-align:center;
+ color: #FFF;
+ text-shadow: 0 0 0.20px rgba(0,0,0,1);
+ position:relative;
+ top:20px;
+background-image: url("../images/potefly.jpg");
+background-size: cover;
+background-position: 50%;
+}
+
+.poteti {
+ font-weight: 100;
+ text-align:center;
+ color: #FFF;
+ text-shadow: 0 0 0.2em rgba(0,0,0,1);
+background-image: url("../images/poteti.jpg");
+background-size: cover;
+background-position: 40%;
 }
