@@ -5,7 +5,13 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
      @recipes = @user.recipes.published
      @reciped = @user.recipes.unpublished
-     @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) ).first
+     # @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) )&.first
+     random_id = Recipe.ids.sample
+     if random_id.present?
+      @random = Recipe.find(id: random_id)
+     else
+      @random = nil
+     end
      @likes = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
      
   end

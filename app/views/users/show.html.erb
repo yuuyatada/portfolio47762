@@ -21,22 +21,26 @@
 <%= link_to "いいねした投稿", favorites_user_path(@user) %><br><br>
 <div class = "potegacha">
  <% if user_signed_in? %>
-<br><h4><strong>ぽてガチャ</strong></h4>
 
-どの投稿を選ぶか悩んでいる方に<br>
-ゲームのガチャのように<br>
-投稿されたものからランダムに<br>
-選択する機能です<br>
-ボタンをクリックすると<br>
-投稿された記事にランダムに<br>
-移動するよ！<br><br>
- <%= link_to " ぽてガチャ", recipe_path(@random), class: "btn btn--orange btn--circle btn--circle-a btn--shadow" %><br>
- <% elsif @random = nil %> 
- <br><h4><strong>ぽてガチャ</strong></h4>
- この機能を使うためには<br>
- レシピの投稿が必要だよ<br>
- <%= link_to "新規投稿画面へ", new_recipe_path , class: "btn btn-primary"%>
- <% else %>
+ 
+
+  <% if @random == nil %> 
+    <br><h4><strong>ぽてガチャ</strong></h4>
+   この機能を使うためには<br>
+   レシピの投稿が必要だよ<br>
+   <%= link_to "新規投稿画面へ", new_recipe_path , class: "btn btn-primary"%>
+  <% else %>
+   <br><h4><strong>ぽてガチャ</strong></h4>
+  
+  どの投稿を選ぶか悩んでいる方に<br>
+  ゲームのガチャのように<br>
+  投稿されたものからランダムに<br>
+  選択する機能です<br>
+  ボタンをクリックすると<br>
+  投稿された記事にランダムに<br>
+  移動するよ！<br><br>
+   <%= link_to " ぽてガチャ", recipe_path(@random), class: "btn btn--orange btn--circle btn--circle-a btn--shadow" %><br>
+  <% end %>
  <% end %>
 </div>
 
