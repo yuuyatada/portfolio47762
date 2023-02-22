@@ -20,6 +20,7 @@
 <%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %><br><br>
 <%= link_to "いいねした投稿", favorites_user_path(@user) %><br><br>
 <div class = "potegacha">
+ <% if user_signed_in? %>
 <br><h4><strong>ぽてガチャ</strong></h4>
 
 どの投稿を選ぶか悩んでいる方に<br>
@@ -30,8 +31,17 @@
 投稿された記事にランダムに<br>
 移動するよ！<br><br>
  <%= link_to " ぽてガチャ", recipe_path(@random), class: "btn btn--orange btn--circle btn--circle-a btn--shadow" %><br>
+ <% elsif @random = nil %> 
+ <br><h4><strong>ぽてガチャ</strong></h4>
+ この機能を使うためには<br>
+ レシピの投稿が必要だよ<br>
+ <%= link_to "新規投稿画面へ", new_recipe_path , class: "btn btn-primary"%>
+ <% else %>
+ <% end %>
 </div>
-<% if current_user.id?%> 
+
+
+<% if current_user.id %> 
 <br><p>非公開の投稿一覧</p>
 <% @reciped.each do |nopotato| %>
 <table rules="groups" border="1">

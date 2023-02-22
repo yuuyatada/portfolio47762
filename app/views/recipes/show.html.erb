@@ -6,7 +6,10 @@
      <h5>詳細ページ</h5>
      </div>
      <div class ="row">
+      <% if user_signed_in? %>
      <h5>投稿者: 	<%= link_to user_path(@recipe.user.id) do %><%=@recipe.user.name%><% end %></h5>
+      <% else %>
+      <h5>投稿者: <%= @recipe.user.name%><% end %></h5>
      </div>
    <div class= "row">
   <h4><strong><%= @recipe.title %></strong></h4>
@@ -69,7 +72,7 @@
    <% elsif user_signed_in? && current_user.admin? == @recipe.user_id || admin_signed_in?  %> 
    管理者側にはコメント投稿機能はありません
    <% else %>
-   <p>新規投稿をするにはユーザ登録が必要になります。</p><br>
+   <p>コメント投稿をするにはユーザ登録が必要になります。</p><br>
 　　新規登録は <%= link_to "こちら", new_user_registration_path %>からお願いします。<br>
 　　登録済みの方は <%= link_to "こちら", new_user_session_path %>からログインをお願いします。
    

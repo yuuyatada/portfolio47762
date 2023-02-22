@@ -7,10 +7,10 @@ class User < ApplicationRecord
          validates :name, presence: true,length:{maximum:20}
          validates :message,length: { maximum: 50 }
          
-  has_many :recipes, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :recipes, :dependent => :destroy
+  has_many :favorites, :dependent => :destroy
    #コメント機能
-  has_many :user_comments, dependent: :destroy
+  has_many :user_comments,:dependent => :destroy
   
    has_one_attached :profile_image
    

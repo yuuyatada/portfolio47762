@@ -43,16 +43,21 @@
    <div class ="row">
   <%= f.submit '投稿' %>
    </div>
-   
-<% end %>
-<% else %>
-<div class ="row">
-<p>新規投稿をするにはユーザ登録が必要になります。</p><br>
-ユーザ登録は <%= link_to "こちら", new_user_registration_path %>からお願いします。
- </div>
-<% end %>
- <div class ="row">
+    <div class ="row">
  <%= link_to "食べ方一覧",  recipes_path %>に戻る
   </div>
-  
+<% end %>
+<% else %>
+<div class ="container text-center">
+<div class ="row">
+<p>新規投稿をするにはユーザ登録が必要になります。</p>
+</div>
+<div class ="row">
+ユーザ登録は <%= link_to "こちら", new_user_registration_path %>からお願いします。
+ </div>
+  <div class ="row">
+ <%= link_to "食べ方一覧",  recipes_path %>に戻る
+  </div>
+  </div>
+<% end %>
  </div>

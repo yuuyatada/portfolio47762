@@ -9,7 +9,7 @@
       <thread>
         <tr class="bg-light">
           <th scope="col">会員ID</th>
-          <th scope="col">氏名</th>
+          <th scope="col">ニックネーム</th>
           <th scope="col">メールアドレス</th>
           <th scope="col">ステータス</th>
         </tr>
@@ -18,7 +18,7 @@
       <tbody>
         <tr>
           <td><%= user.id %></td>
-          <td><%= user.name %></td>
+          <td><%= link_to "#{user.name}" , admin_user_path(user.id) %></td>
           <td><%= user.email %></td>
           <td>
             <% if user.is_deleted == true %>
