@@ -18,11 +18,11 @@
     	 <div class="col">
     	<!--コメントしたユーザーと管理者のみ削除が行える-->
     <% if user_signed_in? && current_user.id == recipe_comment.user_id %>  
-      <%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %>
+      <%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
       	
     	<% elsif user_signed_in? && current_user.id == recipe_comment.user_id || admin_signed_in? %>
     	 
-    	 	<<%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete %>
+    	 	<<%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete , remote: true, data: {confirm: "本当に削除しますか？"}%>
     	<% end %>
      </div>
      

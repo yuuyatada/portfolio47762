@@ -68,7 +68,7 @@
   <div class= "row-field">
   コメント数：<%= @recipe.user_comments.count %>
   <% if user_signed_in? %> 
-  <div id="comments-area"><%= render "user_comments/comment",recipe: @recipe,user_comment: @user_comment %></div>
+  <div id="textarea"><%= render "user_comments/comment",recipe: @recipe,user_comment: @comment %></div>
    <% elsif user_signed_in? && current_user.admin? == @recipe.user_id || admin_signed_in?  %> 
    管理者側にはコメント投稿機能はありません
    <% else %>
@@ -80,7 +80,9 @@
    </div>
    
    <div class= "row-field">
+    <div id="comment-area">
   <%= render "user_comments/usercomment",recipe: @recipe%>
+  </div>
    </div>
   </div>
    </div>
