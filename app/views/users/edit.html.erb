@@ -29,7 +29,11 @@
 
    <div class="row">
    <div class="col-md-4">
+    <% if user_signed_in? && @user == current_user %>
+  <% unless @user.email == "guest@example.com" then %>
   <%= f.submit class: "btn btn-secondary" %>
+   <% end %>
+<% end %>
 </div>
 
    <div class="col-md-4">
@@ -37,7 +41,11 @@
   </div>
  
    <div class="col-md-4">
+      <% if user_signed_in? && @user == current_user %>
+  <% unless @user.email == "guest@example.com" then %>
  <%= link_to '退会する', quit_users_path, class: "glyphicon glyphicon-tint btn btn-danger"%>
+ <% end %>
+<% end %>
   </div>
  </div>
   </div>

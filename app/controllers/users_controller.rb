@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:favorites]
+    before_action :set_user, only: [:favorites,:out]
     before_action :correct_user, only: [:edit, :update]
   def show
      @user = User.find(params[:id])
@@ -31,8 +31,7 @@ class UsersController < ApplicationController
   
    def out
     @user = current_user
-    @user.update(is_deleted: true)
-    reset_session
+    @user.destroy
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
    end
@@ -47,7 +46,7 @@ class UsersController < ApplicationController
    private
    
    def set_user
-    @user = User.find(params[:id])
+   @user = User.find_by(:id => params[:id])
    end
    
   def user_params

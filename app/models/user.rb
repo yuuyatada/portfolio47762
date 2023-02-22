@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :favorites, :dependent => :destroy
    #コメント機能
   has_many :user_comments,:dependent => :destroy
-  
+  before_destroy :unpublish
    has_one_attached :profile_image
    
    def get_profile_image
@@ -40,5 +40,11 @@ class User < ApplicationRecord
       user.name = "ゲスト" 
     end
    end
-         
+
+private
+  def unpublish
+    Recipe.where("user_id = ?", self.id).update_all("is_active = false")
+  end
+
+
 end
