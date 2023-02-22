@@ -27,9 +27,11 @@
 
 .potegacha {
 text-align:center;
-background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+font-weight: 100;
+ text-shadow: 0 0 0.20px rgba(0,0,0,1);
  position:relative;
-  top:10px ;
+background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+ 
 }
 
 .btn--orange {
@@ -102,3 +104,5 @@ background-image: url("../images/poteti.jpg");
 background-size: cover;
 background-position: 40%;
 }
+
+

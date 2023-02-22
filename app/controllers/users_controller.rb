@@ -8,7 +8,7 @@ class UsersController < ApplicationController
      # @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) )&.first
      random_id = Recipe.ids.sample
      if random_id.present?
-      @random = Recipe.find(id: random_id)
+      @random = Recipe.find(random_id)
      else
       @random = nil
      end

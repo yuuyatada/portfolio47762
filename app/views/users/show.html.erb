@@ -21,9 +21,6 @@
 <%= link_to "いいねした投稿", favorites_user_path(@user) %><br><br>
 <div class = "potegacha">
  <% if user_signed_in? %>
-
- 
-
   <% if @random == nil %> 
     <br><h4><strong>ぽてガチャ</strong></h4>
    この機能を使うためには<br>
@@ -40,20 +37,10 @@
   投稿された記事にランダムに<br>
   移動するよ！<br><br>
    <%= link_to " ぽてガチャ", recipe_path(@random), class: "btn btn--orange btn--circle btn--circle-a btn--shadow" %><br>
-  <% end %>
+ 
  <% end %>
-</div>
-
-
-<% if current_user.id %> 
-<br><p>非公開の投稿一覧</p>
-<% @reciped.each do |nopotato| %>
-<table rules="groups" border="1">
- <span><%= link_to nopotato.title,recipe_path(nopotato.id) %></span>
- <% end %>
- <% else %>
-</table>
 <% end %>
+</div>
  </div>
  </div>
  </div>
@@ -78,14 +65,41 @@
   </div>
   
   <div class="col-md-3 d-flex align-items-end">
+   <div id = "favorite_buttons_<%= @recipe.id %>">
   <%= render "favorites/favorite", recipe: potato %>
+   </div>
    </div>
    <div class="col-md-3 d-flex align-items-end">
     コメント数：<%= potato.user_comments.count %>
    </div>
 </div>
 <% end %>
+<% if current_user.id %> 
+<br><p>非公開の投稿一覧</p>
+<% @reciped.each do |nopotato| %>
+<div class="row border ">
+  <div class="col-md-3 d-flex align-items-center">
 
+  <%= link_to nopotato.title,recipe_path(nopotato.id) %>
+  </div>
+  
+  <div class="col-md-3 d-flex align-items-center">
+ <% if nopotato.recipe_image.attached? %>
+    <%= image_tag nopotato.recipe_image, size: "100x100" %>
+  <% else %>
+    <%= image_tag 'default-image', size: "100x100" %>
+  <% end %>
+  </div>
+  <div class="col-md-3 d-flex align-items-end">
+  <%= render "favorites/favorite", recipe: nopotato %>
+   </div>
+   <div class="col-md-3 d-flex align-items-end">
+    コメント数：<%= nopotato.user_comments.count %>
+   </div>
+    <% end %>
+</div>
+ <% else %>
+ <% end %>
 </div>
 
 </div>

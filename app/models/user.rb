@@ -9,6 +9,7 @@ class User < ApplicationRecord
          
   has_many :recipes, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
+   has_many :favorited_recipes, through: :favorites, source: :recipe
    #コメント機能
   has_many :user_comments,:dependent => :destroy
   before_destroy :unpublish
@@ -20,6 +21,10 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [50, 50]).processed
+   end
+   
+   def favorited_by?(recipe_id)
+    favorites.where(recipe_id: recipe_id).exists?
    end
    
    def status
