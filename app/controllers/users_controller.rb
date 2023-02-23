@@ -6,7 +6,7 @@ class UsersController < ApplicationController
      @recipes = @user.recipes.published
      @reciped = @user.recipes.unpublished
      # @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) )&.first
-     random_id = Recipe.ids.sample
+     random_id = Recipe.published.ids.sample
      if random_id.present?
       @random = Recipe.find(random_id)
      else

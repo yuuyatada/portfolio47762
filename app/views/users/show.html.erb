@@ -91,7 +91,9 @@
   <% end %>
   </div>
   <div class="col-md-3 d-flex align-items-end">
+    <div id = "favorite_buttons">
   <%= render "favorites/favorite", recipe: nopotato %>
+   </div>
    </div>
    <div class="col-md-3 d-flex align-items-end">
     コメント数：<%= nopotato.user_comments.count %>

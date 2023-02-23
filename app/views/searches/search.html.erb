@@ -1,17 +1,23 @@
+<div class = "container">
 <h2>レシピ検索結果</h2>
 
-<table class="table table-hover table-inverse">
+<table class="table table-hover table-inverse border">
       <% if @recipes.present? %>
       <% @recipes.each do |result| %>
      
         <tr>
+            <td>
     <% if result.recipe_image.attached? %>
-    <%= image_tag result.recipe_image, size: "200x200" %>
+    <%= image_tag result.recipe_image, size: "100x100" %>
     <% else %>
-    <%= image_tag 'default-image', size: "200x200" %>
-    <% end %>
-          <td><%= result.title %></td>
-          <td><%= result.main_text %></td>
+    <%= image_tag 'default-image', size: "100x100" %>
+    <% end %></td>
+          <td><%= result.title.truncate(20) %></td>
+          <td><%= result.main_text.truncate(20) %></td>
+          <td><div id = "favorite_buttons">
+         <%= render "favorites/favorite", recipe: result %>
+         </div></td>
+           <td>コメント数：<%= result.user_comments.count %></td>
         </tr>
      <% end %>
      <% end %>
@@ -19,3 +25,4 @@
  　　　<p>検索結果がありませんでした</p>
  　　　　<% end %>
 </table>
+</div>
