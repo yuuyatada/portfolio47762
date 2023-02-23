@@ -6,6 +6,7 @@ class UsersController < ApplicationController
      @recipes = @user.recipes.published
      @reciped = @user.recipes.unpublished
      # @random = Recipe.where( 'id >= ?', rand(Recipe.first.id..Recipe.last.id) )&.first
+     #ランダムで公開済みの投稿された内容を引っ張ってくる
      random_id = Recipe.published.ids.sample
      if random_id.present?
       @random = Recipe.find(random_id)

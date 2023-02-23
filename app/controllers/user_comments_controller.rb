@@ -3,13 +3,13 @@ class UserCommentsController < ApplicationController
    @recipe = Recipe.find(params[:recipe_id])
    @comment = current_user.user_comments.new(user_comment_params)
    @comment.recipe_id = @recipe.id
-   @comment.save
-   #if @comment.save
-   #flash.now[:notice] = 'コメントを投稿しました'
-    #  render :recipe_comments
-   #else
-    #  render 'recipes/show'
-   #end
+   #@comment.save
+   if @comment.save
+   flash.now[:notice] = 'コメントを投稿しました'
+     #render :recipe_comments
+   else
+      render 'recipes/show'
+   end
     
   end
   
@@ -17,7 +17,7 @@ class UserCommentsController < ApplicationController
       
      @comment = UserComment.find_by(id: params[:id], recipe_id: params[:recipe_id]).destroy
      @recipe = Recipe.find(params[:recipe_id])  
-     #render :recipe_comment
+     #render :recipe_comments
   end
   
    private
