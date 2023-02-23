@@ -59,8 +59,9 @@
    
   <div class= "row">
    <% if user_signed_in?%> 
-  
+   <div id = "favorite_buttons">
   <%= render "favorites/favorite", recipe: @recipe %>
+  </div>
   <% elsif user_signed_in? && current_user.admin? && current_user.id == @recipe.user_id  %> 
   <% end %>
    </div>

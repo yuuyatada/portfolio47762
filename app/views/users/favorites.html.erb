@@ -19,7 +19,9 @@
   <%= like.main_text.truncate(20)%>
  </div>
  <div class="col-md-3 d-flex align-items-end">
+  <div id = "favorite_buttons">
   <%= render "favorites/favorite", recipe: like %>
+  </div>
    </div>
   
   <% end %>
