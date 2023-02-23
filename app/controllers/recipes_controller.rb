@@ -17,9 +17,13 @@ class RecipesController < ApplicationController
   end
 
   def edit
-   @recipe = Recipe.find(params[:id])
+  if current_user
+      @recipe = Recipe.find(params[:id])
+  else
+      redirect_to '/recipes'
   end
-
+  end
+  
   def create
      recipe = Recipe.new(recipe_params)
      if recipe.save
