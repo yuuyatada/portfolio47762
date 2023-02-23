@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
      has_many :favorites, dependent: :destroy
      has_many :favorited_users, through: :favorites, source: :user
      #コメント機能
-     has_many :user_comments, dependent: :destroy
+     has_many :user_comments,:dependent => :destroy
      #公開、非公開機能の判断メソッド
       scope :published, -> {where(is_active: true)}
       scope :unpublished, -> {where(is_active: false)}

@@ -5,19 +5,12 @@
  <div class="col-md-3 border">
     <div class="container">
     <div class="row-text-center">
-        
-
 <h4>ユーザ情報</h4><br>
-
-
 <%= image_tag @user.get_profile_image,size:"90x90" %><br>
 <%= @user.name %><br>
-
-    
 <p>一言メッセージ</p><br>
 <%= @user.message %><br><br>
-
-<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-success" %><br><br>
+<%= link_to " ユーザ編集", edit_user_path, class: "glyphicon glyphicon-pencil btn btn-secondary text-white" %><br><br>
 <%= link_to "いいねした投稿", favorites_user_path(@user) %><br><br>
 <div class = "potegacha">
  <% if user_signed_in? %>
@@ -28,7 +21,6 @@
    <%= link_to "新規投稿画面へ", new_recipe_path , class: "btn btn-primary"%>
   <% else %>
    <br><h4><strong>ぽてガチャ</strong></h4>
-  
   どの投稿を選ぶか悩んでいる方に<br>
   ゲームのガチャのように<br>
   投稿されたものからランダムに<br>
@@ -40,17 +32,16 @@
  
  <% end %>
 <% end %>
-</div>
- </div>
- </div>
- </div>
+  </div>
+  </div>
+  </div>
+  </div>
  
-<div class="col-md-5 offset-md-1">
-  <div class="container-field">
-  <h1><%= @user.name %>の投稿一覧</h1>
+<div class="col-md-6">
+<h3><%= @user.name %>の投稿一覧</h3>
 
   <% @recipes.each do |potato| %>
-  <div class="row border ">
+  <div class="row border">
   <div class="col-md-3 d-flex align-items-center">
 
   <%= link_to potato.title,recipe_path(potato.id) %>
@@ -98,42 +89,42 @@
    <div class="col-md-3 d-flex align-items-end">
     コメント数：<%= nopotato.user_comments.count %>
    </div>
+   </div>
     <% end %>
-</div>
+
  <% else %>
  <% end %>
 </div>
 
-</div>
-<div class="col-md-3 border">
+<div class="col-md-3 border order-last ">
   <div class="container-field">
 <h4><strong>いいねランキング</strong></h4><br>
 いいね数が多い上位3件の投稿が掲載されるよ<br><br>
 <% @likes.each.with_index(1) do |note, i| %>
 <div class="row border">
- <div class="col">
+  <div class="col-md-3 d-flex align-items-center">
  第<%= i %>位
  </div>
-  <div class="col">
+   <div class="col-md-3 d-flex align-items-center">
  <%=link_to recipe_path(note.id),class:"title" do %>
  <%=note.title%>
 <% end %>
 </div>
- <div class="col">
+  <div class="col-md-3 d-flex align-items-center">
 <% if note.recipe_image.attached? %>
     <%= image_tag note.recipe_image, size: "90x90" %>
   <% else %>
     <%= image_tag 'default-image', size: "90x90" %>
   <% end %>
   </div>
-   <div class="col">
+   <div class="col-md-3 d-flex align-items-center">
   ❤数︎:<%= note.favorites.count %>
   </div>
   </div>
 <% end %>
 </div>
 </div>
- </div>
+ 
 
 
 </div>

@@ -29,7 +29,7 @@ class User < ApplicationRecord
    
    def status
     if is_deleted == true
-    is_deleted = "退会"
+    is_deleted = "停止"
     else
     is_deleted = "有効"
     end

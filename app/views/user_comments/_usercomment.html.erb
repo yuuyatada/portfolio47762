@@ -1,5 +1,5 @@
 <div class="container">
-  
+   コメント数：<%= recipe.user_comments.count %>
  <% recipe.user_comments.each do |recipe_comment| %>
   <% recipe_comment_user = recipe_comment.user %>
    <div class="row-field border">
@@ -22,7 +22,7 @@
       	
     	<% elsif user_signed_in? && current_user.id == recipe_comment.user_id || admin_signed_in? %>
     	 
-    	 	<<%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete , remote: true, data: {confirm: "本当に削除しますか？"}%>
+    	 	<%= button_to '削除', recipe_user_comment_path(recipe.id,recipe_comment.id), method: :delete , remote: true, data: {confirm: "本当に削除しますか？"}%>
     	<% end %>
      </div>
      
