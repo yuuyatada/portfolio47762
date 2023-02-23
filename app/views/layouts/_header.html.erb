@@ -81,6 +81,8 @@
   <% if user_signed_in? %>
   <div class ="ml-auto">
  <%= render partial: 'layouts/search' %>
+ <% elsif admin_signed_in? %>
+ <%= render partial: 'layouts/search' %>
  <% else %>
  <% end %>
   </div>
