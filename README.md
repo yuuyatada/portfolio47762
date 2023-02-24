@@ -30,7 +30,11 @@ https://docs.google.com/spreadsheets/d/1S7rmtCyZRpz-vFIaMVV_KfwL1Y6zgYwBwcPT0Xid
 詳細設計書
 https://docs.google.com/spreadsheets/d/18yksHytWgaFBHzFapXSxMN3DMc83C-NoCyc68u2_fBE/edit#gid=549108681
 
+実装機能リスト
+https://docs.google.com/spreadsheets/d/1U8D8sc5xUvT6UNq5DOkj-fLYsRe7GmiG8fFsxgPR28g/edit#gid=885378170
 
+テスト仕様
+https://docs.google.com/spreadsheets/d/1RBJFzb_B5Wim2nv1tXysr4tiS21uH3iS/edit#gid=1912082629
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -40,3 +44,5 @@ https://docs.google.com/spreadsheets/d/18yksHytWgaFBHzFapXSxMN3DMc83C-NoCyc68u2_
 - IDE：Cloud9
 
 ## 使用素材
+フリー素材（pixabay,ぱくたそ）
+CSSデザイン（JAJAAN!)
