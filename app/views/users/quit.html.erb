@@ -12,5 +12,9 @@
 
 <div class="d-flex justify-content-center">
   <%= link_to "退会しない", user_path(@user.id), method: :get, class: 'glyphicon glyphicon-home btn btn-primary' %>
+   <% if user_signed_in? && @user == current_user %>
+    <% unless @user.email == "guest@example.com" then %>
   <%= link_to "退会する", out_users_path, method: :patch, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger ml-3" %>
+  <% end %>
+  <% end %>
 </div>
