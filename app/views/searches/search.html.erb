@@ -12,7 +12,7 @@
     <% else %>
     <%= image_tag 'default-image', size: "100x100" %>
     <% end %></td>
-          <td><%= result.title.truncate(20) %></td>
+          <td><%=link_to result.title,recipe_path(result.id).truncate(20) %></td>
           <td><%= result.main_text.truncate(20) %></td>
           <td><div id = "favorite_buttons">
          <%= render "favorites/favorite", recipe: result %>
