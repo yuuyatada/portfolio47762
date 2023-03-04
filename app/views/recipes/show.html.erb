@@ -23,7 +23,11 @@
     <%= image_tag 'default-image', size: "200x200" %>
   <% end %>
    </div>
-   
+   <div class="row-field">
+ <% @recipe.tags.each do |tag| %>
+  <span class="label"><%= tag.name %></span>
+ <% end %>
+ </div>
    <div class= "row">
   <h5>食べ方解説</h5>
    </div>

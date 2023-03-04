@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
      has_one_attached :recipe_image
+     #API追加のためTagモデル追加
+     has_many :tags, dependent: :destroy
      #recipeテーブルから中間テーブルに対する関連付け
      #has_many :recipe_breed_relations, dependent: :destroy
       #breedテーブルから中間テーブルを介してTagsテーブルへの関連付け
