@@ -26,7 +26,6 @@ class RecipesController < ApplicationController
   
   def create
      recipe = Recipe.new(recipe_params)
-      
      if recipe.save
       tags = Vision.get_image_data(recipe.recipe_image)    
       tags.each do |tag|
