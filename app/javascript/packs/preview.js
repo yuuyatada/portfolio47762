@@ -1,3 +1,5 @@
+//新規投稿画面での画像を表示させるためのコード//
+
 if (document.URL.match(/new/)){
     document.addEventListener('DOMContentLoaded', () => {
       const createImageHTML = (blob) => {  
