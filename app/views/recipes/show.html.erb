@@ -33,8 +33,8 @@
    <div class= "row  m-1">
   <h5>食べ方解説</h5>
    </div>
-   <div class= "row border">
-  <%= @recipe.main_text %><br>
+   <div class= "row border text-center">
+  <%=safe_join(@recipe.main_text.split("\n"),tag(:br)) %><br>
   </div>
   
   <div class= "row m-1">
