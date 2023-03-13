@@ -10,6 +10,7 @@
   
   <h4>イメージ画像</h4>
   <%= f.file_field :recipe_image, accept: "image/*" %>
+  <div id="new-image"></div>
   <h4>本文</h4>
    <%= f.label :"食べ方", class: "col-sm-3 control-label" %>
    <%= f.text_area :main_text,:size=>"100×700" %>
