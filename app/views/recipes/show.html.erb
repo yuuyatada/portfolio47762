@@ -24,19 +24,20 @@
   <% end %>
    </div>
    
-   <div class="row-field">
+   <div class="row-field  m-1">
+    投稿画像AI診断要素:
  <% @recipe.tags.each do |tag| %>
   <span class="label"><%= tag.name %></span>
  <% end %>
  </div>
-   <div class= "row">
+   <div class= "row  m-1">
   <h5>食べ方解説</h5>
    </div>
    <div class= "row border">
   <%= @recipe.main_text %><br>
   </div>
   
-  <div class= "row">
+  <div class= "row m-1">
   品種名:<%= @recipe.breed.name %><br>
   </div>
   
@@ -60,7 +61,7 @@
   </div>
  
    
-  <div class= "row">
+  <div class= "row-field m-1">
    <% if user_signed_in?%> 
    <div id = "favorite_buttons">
   <%= render "favorites/favorite", recipe: @recipe %>
