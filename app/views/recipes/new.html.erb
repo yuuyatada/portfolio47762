@@ -9,7 +9,7 @@
   <h4>タイトル</h4>
   </div>
   <div class ="row">
-  <%= f.text_field :title ,:size=>"70"%>
+  <%= f.text_field :title ,:size=>"70",required: true%>
    </div>
     <div class ="row">
   <h4>イメージ画像</h4>
@@ -26,7 +26,7 @@
   <h4>本文</h4>
     </div>
     <div class ="row field">
-  <%= f.text_area :main_text,:size=>"100×700" %>
+  <%= f.text_area :main_text,:size=>"100×700" ,required: true%>
    </div>
   
   　<div class='row form-group'>
