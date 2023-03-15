@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
      before_action :correct_user, only: [:edit, :update]
   def new
     @recipe = Recipe.new
+    
   end
 
   def index
@@ -26,7 +27,7 @@ class RecipesController < ApplicationController
   
   def create
      recipe = Recipe.new(recipe_params)
-     
+     flash[:newrecipe] = "新規レシピを投稿しました"
      if recipe.save
       tags = Vision.get_image_data(recipe.recipe_image)    
       tags.each do |tag|
