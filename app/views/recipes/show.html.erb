@@ -52,7 +52,7 @@
     <div class= "col">
   <%= button_to " 削除",  recipe_path(@recipe), method: :delete,class: "glyphicon glyphicon-pencil btn btn-danger" , data: {confirm: "本当に削除しますか？"}%>
   </div>
-  
+  <!--ログイン済みのユーザーと管理者ユーザーを同意義とする-->
    <% elsif user_signed_in? && current_user.id == @recipe.user_id || admin_signed_in? %> 
  
      <div class= "col">
