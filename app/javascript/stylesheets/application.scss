@@ -58,13 +58,12 @@ background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 .potatoabout {
 	text-align:center;
+	color: #FFF;
 	line-height:0.95em;
 	font-weight:200;
-	text-shadow:
-		0 0.03em 0.03em #FFAB91,
-		0 0.03em 0.03em #000,
-		0 0.03em 0.03em #FBE9E7;
-background-image: url("../images/potatoabout.jpg");
+  text-shadow: 0 0 0.20px rgba(0,0,0,1);
+background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+url("../images/potatoabout.jpg");
 background-size: cover;
 background-position: 50%;
 
@@ -78,7 +77,8 @@ background-position: 50%;
  text-shadow: 0 0 0.2em rgba(0,0,0,1);
  position:relative;
  top:20px;
-background-image: url("../images/my.jpg");
+background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+url("../images/my.jpg");
 background-size: cover;
 background-position: 50%;
 }
@@ -90,7 +90,8 @@ background-position: 50%;
  text-shadow: 0 0 0.20px rgba(0,0,0,1);
  position:relative;
  top:20px;
-background-image: url("../images/potefly.jpg");
+background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+url("../images/potefly.jpg");
 background-size: cover;
 background-position: 50%;
 }
@@ -100,7 +101,8 @@ background-position: 50%;
  text-align:center;
  color: #FFF;
  text-shadow: 0 0 0.2em rgba(0,0,0,1);
-background-image: url("../images/poteti.jpg");
+background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+url("../images/poteti.jpg");
 background-size: cover;
 background-position: 40%;
 }
