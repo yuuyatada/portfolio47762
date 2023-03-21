@@ -14,7 +14,12 @@ class UsersController < ApplicationController
      else
       @random = nil
      end
+    
+    if  @recipes
      @likes = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
+    else
+    end
+    
      
   end
 

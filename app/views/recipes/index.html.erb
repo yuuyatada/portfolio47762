@@ -52,11 +52,11 @@
   <% end %></th>
   <th><%= potato.breed.name%></th>
   <th> <% if user_signed_in?%> 
-   <th>❤︎:<%= potato.favorites.count %></th>
+   <th>&emsp;❤︎:<%= potato.favorites.count %></th>
   <% elsif user_signed_in? && current_user.admin? && current_user.id == @recipe.user_id  %> 
   <% end %></th>
-  <th>コメント数：<%= potato.user_comments.count %></th>
-
+  <th>&emsp;コメント数：<%= potato.user_comments.count %></th>
+ <th>&emsp;レシピ作成日：<%= potato.created_at.strftime('%Y/%m/%d %H:%M')%></th>
   <% end %>
   </tr>
   </div>
