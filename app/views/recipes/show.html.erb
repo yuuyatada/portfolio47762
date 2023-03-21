@@ -74,6 +74,7 @@
   <% end %>
    </div>
   
+
   <div class= "row-field">
   <% if user_signed_in? %> 
    <div class="new-comment">
@@ -87,7 +88,7 @@
    
   <% end %>
    </div>
-   
+ 
    <div id="comments_area">
     
   <%= render "user_comments/usercomment",recipe: @recipe%>

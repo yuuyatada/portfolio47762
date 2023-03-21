@@ -1,4 +1,5 @@
-　<%= form_with model: [recipe,user_comment], local: false do |f| %>
-        <%= f.text_area :comment, size:"90x5" ,placeholder: "コメントをここに",required: true%>
+<%= form_with model: [recipe,user_comment], local: false do |f| %>
+        <%= f.text_area :comment, size:"80x5" , class: 'form-control  js-text',placeholder: "コメントはここに（最大１４０字まで)",required: true%>
+        <P class="js-text-count pull-right"></P>
         <%= f.submit '送信'%>
       <% end %>

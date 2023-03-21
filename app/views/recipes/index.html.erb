@@ -43,7 +43,7 @@
 <% @recipes.each do |potato| %>
 
   <tr>
-   <th scope="col"><%= link_to potato.title,recipe_path(potato.id) %></th>
+   <th scope="col"><%= link_to potato.title,recipe_path(potato.id),data:{"turbolinks" => false} %></th>
     
   <th scope="col"><% if potato.recipe_image.attached? %>
     <%= image_tag potato.recipe_image, size: "90x90" %>
