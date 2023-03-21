@@ -12,17 +12,20 @@
   <%= f.file_field :recipe_image, accept: "image/*" %>
   <div id="new-image"></div>
   <h4>本文</h4>
-   <%= f.label :"食べ方", class: "col-sm-3 control-label" %>
    <%= f.text_area :main_text,:size=>"100×700" %>
    <h4>使用した品種</h4>
     <div class='form-group'>
         <%= f.collection_select(:breed_id, Breed.all, :id, :name) %>
     </div>
    <h4>公開/非公開設定</h4>
- <%= f.label :is_active, "公開", value: true %>
+   <div class ="row">
  <%= f.radio_button :is_active, 'true' %>
- <%= f.label :is_active, "非公開", value: false %>
+ <%= f.label :is_active, "公開", value: true %>
+ </div>
+ <div class ="row">
  <%= f.radio_button :is_active,'false' %>
+ <%= f.label :is_active, "非公開", value: false %>
+  </div>
    
    <%= f.submit class: "btn btn-secondary" %>
 <% end %>
