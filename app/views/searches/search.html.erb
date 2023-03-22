@@ -12,13 +12,17 @@
     <% else %>
     <%= image_tag 'default-image', size: "100x100" %>
     <% end %></td>
+    
           <td><%=link_to result.title,recipe_path(result.id).truncate(20),data:{"turbolinks" => false}%></td>
           <td><%= result.main_text.truncate(20) %></td>
+    <% if admin_signed_in?%>
+    <% else %>
           <td><div id = "favorite_buttons">
          <%= render "favorites/favorite", recipe: result %>
          </div></td>
            <td>コメント数：<%= result.user_comments.count %></td>
         </tr>
+     <% end %>
      <% end %>
      <% end %>
       <% if @recipes.size == 0 %>
