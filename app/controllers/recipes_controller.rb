@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
      before_action :correct_user, only: [:edit,:update]
+     before_action :set_user ,only: [:show]
+     
   def new
     @recipe = Recipe.new
     
@@ -12,11 +14,9 @@ class RecipesController < ApplicationController
   end
 
   def show
-      
-   @recipe = Recipe.find(params[:id])
-   @comment = UserComment.new
-  
-   
+    @comment = UserComment.new
+    @recipe = Recipe.find(params[:id])
+    
   end
 
   def edit
@@ -70,6 +70,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @user = @recipe.user
     redirect_to(recipes_path) unless @user == current_user
+  end
+  
+  def set_user
+    @recipes = Recipe.find(params[:id])
   end
 
 end

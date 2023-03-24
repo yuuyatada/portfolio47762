@@ -47,7 +47,7 @@
   
  <div class= "row row-cols-auto">
   
-   <% if user_signed_in? && current_user.id == @recipe.user_id %>  
+   <% if user_signed_in? && current_user.id == @recipe.user_id %> 
    <div class= "col">
   <%= link_to " ユーザ編集",  edit_recipe_path(@recipe), class: "glyphicon glyphicon-pencil btn btn-secondary" %>
   </div>
