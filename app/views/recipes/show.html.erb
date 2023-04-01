@@ -1,33 +1,33 @@
  <div class="container-field">
  <div class ="row">
     <div class="container">
-    <div class="row-text-center ">
-     <div class ="row">
-     <h5>詳細ページ</h5>
-     </div>
-     <div class ="row">
-      <% if user_signed_in? %>
-     <h5>投稿者: 	<%= link_to user_path(@recipe.user.id) do %><%=@recipe.user.name%><% end %></h5>
-      <% else %>
-      <h5>投稿者: <%= @recipe.user.name%><% end %></h5>
-     </div>
-   <div class= "row">
-  <h4><strong><%= @recipe.title %></strong></h4>
-  </div>
+     <div class="row-text-center ">
+      <div class ="row">
+       <h5>詳細ページ</h5>
+      </div>
+      <div class ="row">
+       <% if user_signed_in? %>
+       <h5>投稿者: 	<%= link_to user_path(@recipe.user.id) do %><%=@recipe.user.name%><% end %></h5>
+       <% else %>
+       <h5>投稿者: <%= @recipe.user.name%><% end %></h5>
+       </div>
+      <div class= "row">
+       <h4><strong><%= @recipe.title %></strong></h4>
+      </div>
   
-  </div>
-   <div class= "row">
-  <% if @recipe.recipe_image.attached? %>
-    <%= image_tag @recipe.recipe_image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'default-image', size: "200x200" %>
-  <% end %>
-   </div>
+     </div>
+      <div class= "row">
+      <% if @recipe.recipe_image.attached? %>
+      <%= image_tag @recipe.recipe_image, size: "200x200" %>
+      <% else %>
+      <%= image_tag 'default-image', size: "200x200" %>
+      <% end %>
+      </div>
    
-   <div class="row-field  m-1">
-    画像AI診断:
- <% @recipe.tags.each do |tag| %>
-  <span class="label"><%= tag.name %></span>
+      <div class="row-field  m-1">
+      画像AI診断:
+      <% @recipe.tags.each do |tag| %>
+      <span class="label"><%= tag.name %></span>
  <% end %>
  </div>
    <div class= "row  m-1">
